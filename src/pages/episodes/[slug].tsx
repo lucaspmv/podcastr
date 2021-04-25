@@ -3,6 +3,7 @@ import ptBR from 'date-fns/locale/pt-BR';
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image'
+import Head from 'next/head'
 import Link from 'next/link'
 import styles from './episode.module.scss';
 import { api } from '../../services/api';
@@ -30,6 +31,10 @@ export default function Episode({ episode }: EpisodeProps) {
 
   return (
     <div className={styles.episode}>
+      <Head>
+        <title>{episode.title} | Podcastr</title>
+      </Head>
+
       <div className={styles.thumbnailContainer}>
         <Link href='/'>
           <button type='button'>
